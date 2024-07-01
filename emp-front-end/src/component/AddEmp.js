@@ -33,7 +33,7 @@ const AddEmp = () => {
                     <input className='h-10 w-96 border mt-2 block' name='email' value={employee.email} onChange={(e) => handleChange(e)} type='email'></input>
                     <div className='space-y-10 space-x-10'>
                         <button className='rounded text-white font-semibold bg-green-400 py-2 px-6  hover:bg-green-800' onClick={saveEmployee}> save</button>
-                        <button className='rounded text-white font-semibold bg-red-400 py-2 px-6  hover:bg-red-800'> Clear</button>
+                        <button className='rounded text-white font-semibold bg-red-400 py-2 px-6  hover:bg-red-800'> Clear </button>
                     </div>
                 </div>
             </div>
