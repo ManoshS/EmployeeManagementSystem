@@ -15,10 +15,10 @@ const GetDeleteEmp = () => {
 
     }
     const getEmployee = () => {
-
+        console.log("Get Employee ")
     }
     const deleteEmployee = () => {
-
+        console.log("Delete Employee ")
     }
     return (
         <div className='flex max-w-2xl mx-auto shadow border-b '>
