@@ -1,6 +1,6 @@
 import { useState } from "react";
 import React from 'react'
-
+import EmployeeService from "../services/EmployeeService";
 const GetDeleteEmp = () => {
 
     const [employee, setEmployee] = useState({
@@ -16,9 +16,21 @@ const GetDeleteEmp = () => {
     }
     const getEmployee = () => {
         console.log("Get Employee ")
+        const emp = new EmployeeService()
+        console.log("Hello " + employee.id);
+        emp.getEmployee(employee.id).then((response) => {
+            console.log(response);
+
+            setEmployee(response.data);
+        }).catch((error) => console.log(error));
     }
     const deleteEmployee = () => {
         console.log("Delete Employee ")
+
+        const emp = new EmployeeService();
+        emp.deleteEmployee(employee.id).then((response) => {
+            console.log(response);
+        }).catch((error) => console.log(error));
     }
     return (
         <div className='flex max-w-2xl mx-auto shadow border-b '>
@@ -26,7 +38,7 @@ const GetDeleteEmp = () => {
                 <div className='font-thin text-2xl tracking-wide'> Get Or Delete Employee </div>
                 <div className='items-center justify-center h-full w-full '>
                     <label className='block'>Enter Employee ID :</label>
-                    <input className='h-10 w-96 border mt-2 ' name='firstName' value={employee.firstName} onChange={(e) => handleChange(e)} type='text'></input>
+                    <input className='h-10 w-96 border mt-2 ' name='id' value={employee.id} onChange={(e) => handleChange(e)} type='text'  ></input>
                     <div className='border-b-2  list-none'> <ul>
                         <li>Id :{employee.id}</li>
                         <li>First Name :{employee.firstName}</li>
